@@ -3,6 +3,17 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Target, Rocket, Heart, Globe } from "lucide-react"
+import {
+  MorphingDialog,
+  MorphingDialogTrigger,
+  MorphingDialogContent,
+  MorphingDialogTitle,
+  MorphingDialogImage,
+  MorphingDialogSubtitle,
+  MorphingDialogClose,
+  MorphingDialogContainer,
+} from '@/components/ui/morphing-dialog'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 export function AboutSection() {
   const values = [
@@ -55,15 +66,67 @@ export function AboutSection() {
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-          {/* Left Column - Image Placeholder */}
+          {/* Left Column - Image with MorphingDialog */}
           <div className="relative">
-            <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg overflow-hidden">
-              <img
-                src="/placeholder.svg?height=400&width=600"
-                alt="TechGenius members collaborating"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <MorphingDialog
+              transition={{
+                type: 'spring',
+                stiffness: 200,
+                damping: 24,
+              }}
+            >
+              <MorphingDialogTrigger className="block">
+                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
+                  <MorphingDialogImage
+                    src="/placeholder.svg?height=400&width=600"
+                    alt="TechGenius members collaborating"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </MorphingDialogTrigger>
+              <MorphingDialogContainer>
+                <MorphingDialogContent className="relative h-auto w-[800px] max-w-[90vw] border border-border bg-background rounded-xl">
+                  <ScrollArea className="h-[80vh]" type="scroll">
+                    <div className="relative p-8">
+                      <div className="flex justify-center py-10">
+                        <MorphingDialogImage
+                          src="/placeholder.svg?height=400&width=600"
+                          alt="TechGenius members collaborating"
+                          className="h-auto w-full max-w-[600px] rounded-lg"
+                        />
+                      </div>
+                      <div className="space-y-6">
+                        <MorphingDialogTitle className="text-foreground text-2xl font-bold">
+                          TechGenius Community Collaboration
+                        </MorphingDialogTitle>
+                        <MorphingDialogSubtitle className="text-muted-foreground text-lg">
+                          Where Innovation Meets Collaboration
+                        </MorphingDialogSubtitle>
+                        <div className="text-muted-foreground space-y-4">
+                          <p>
+                            At TechGenius, we believe that the best innovations come from collaborative environments where 
+                            diverse minds work together toward common goals. Our community space is designed to foster 
+                            creativity, learning, and meaningful connections between students passionate about technology.
+                          </p>
+                          <p>
+                            This image captures one of our regular collaboration sessions where members work on various 
+                            projects ranging from mobile applications to AI research initiatives. These sessions are the 
+                            heart of our community, where ideas are born, refined, and transformed into reality.
+                          </p>
+                          <p>
+                            Our modern facilities provide the perfect environment for both focused individual work and 
+                            dynamic group collaborations, ensuring that every member has access to the resources and 
+                            support they need to succeed in their technological endeavors.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </ScrollArea>
+                  <MorphingDialogClose className="text-muted-foreground" />
+                </MorphingDialogContent>
+              </MorphingDialogContainer>
+            </MorphingDialog>
+            
             {/* Floating stats card */}
             <Card className="absolute -bottom-6 -right-6 bg-background/95 backdrop-blur-sm border-border">
               <CardContent className="p-6">

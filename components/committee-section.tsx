@@ -4,6 +4,17 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Linkedin, Github, Mail } from "lucide-react"
+import {
+  MorphingDialog,
+  MorphingDialogTrigger,
+  MorphingDialogContent,
+  MorphingDialogTitle,
+  MorphingDialogImage,
+  MorphingDialogSubtitle,
+  MorphingDialogClose,
+  MorphingDialogContainer,
+} from '@/components/ui/morphing-dialog'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 export function CommitteeSection() {
   const committeeMembers = [
@@ -13,6 +24,7 @@ export function CommitteeSection() {
       department: "Computer Science",
       year: "Senior",
       bio: "Passionate about AI/ML and leading our community towards innovative solutions.",
+      fullBio: "Sarah Chen is a distinguished senior Computer Science student who has been leading TechGenius with exceptional vision and dedication. Her passion for artificial intelligence and machine learning has driven numerous groundbreaking initiatives within our community. Under her leadership, TechGenius has expanded its reach, formed strategic partnerships with industry leaders, and launched several successful programs that have benefited hundreds of students. Sarah's commitment to fostering innovation and creating an inclusive environment has made her an inspirational leader who continues to guide our organization toward new heights of excellence.",
       image: "/placeholder.svg?height=300&width=300",
       linkedin: "#",
       github: "#",
@@ -24,6 +36,7 @@ export function CommitteeSection() {
       department: "Software Engineering",
       year: "Junior",
       bio: "Full-stack developer focused on building scalable web applications and mentoring newcomers.",
+      fullBio: "Marcus Rodriguez brings extensive experience in full-stack development and a passion for mentoring to his role as Vice President. As a junior Software Engineering student, he has already contributed to multiple large-scale projects and has been instrumental in establishing our mentorship program. His expertise in building scalable web applications has helped numerous club members develop their technical skills, while his approachable nature and dedication to helping others has made him a beloved figure in our community. Marcus continues to bridge the gap between experienced developers and newcomers, ensuring everyone feels welcomed and supported.",
       image: "/placeholder.svg?height=300&width=300",
       linkedin: "#",
       github: "#",
@@ -35,6 +48,7 @@ export function CommitteeSection() {
       department: "Data Science",
       year: "Senior",
       bio: "Data enthusiast working on machine learning projects and organizing technical workshops.",
+      fullBio: "Aisha Patel is a senior Data Science student whose expertise in machine learning and data analytics has been invaluable to TechGenius. As our Technical Lead, she has organized numerous workshops that have educated hundreds of students on cutting-edge technologies. Her research work in predictive analytics and her ability to translate complex concepts into accessible learning materials has made her workshops some of the most popular events in our calendar. Aisha's dedication to advancing technical knowledge within our community continues to inspire both beginners and advanced practitioners in the field of data science.",
       image: "/placeholder.svg?height=300&width=300",
       linkedin: "#",
       github: "#",
@@ -46,6 +60,7 @@ export function CommitteeSection() {
       department: "Information Systems",
       year: "Sophomore",
       bio: "Organizing hackathons, tech talks, and networking events to connect our community.",
+      fullBio: "David Kim, a sophomore Information Systems student, has revolutionized how TechGenius approaches event management. His innovative approach to organizing hackathons, tech talks, and networking events has significantly increased community engagement and participation. Despite being one of our younger committee members, David's organizational skills and creative event planning have resulted in some of our most successful and memorable events. His ability to coordinate with industry professionals and create meaningful networking opportunities has helped countless members advance their careers and expand their professional networks.",
       image: "/placeholder.svg?height=300&width=300",
       linkedin: "#",
       github: "#",
@@ -57,6 +72,7 @@ export function CommitteeSection() {
       department: "Computer Engineering",
       year: "Junior",
       bio: "Building partnerships with industry leaders and expanding our club's reach.",
+      fullBio: "Emily Johnson serves as our Outreach Manager, where her exceptional communication skills and strategic thinking have been crucial in building partnerships with industry leaders. As a junior Computer Engineering student, she has successfully negotiated partnerships that have provided our members with internship opportunities, mentorship programs, and access to cutting-edge technologies. Her work in expanding our club's reach has resulted in collaborations with major tech companies and increased visibility for TechGenius within the broader tech community. Emily's dedication to creating opportunities for our members continues to open doors for career advancement and professional growth.",
       image: "/placeholder.svg?height=300&width=300",
       linkedin: "#",
       github: "#",
@@ -68,6 +84,7 @@ export function CommitteeSection() {
       department: "Business Information Systems",
       year: "Senior",
       bio: "Managing club finances and securing funding for our innovative projects and events.",
+      fullBio: "Alex Thompson, a senior Business Information Systems student, has been instrumental in managing TechGenius's financial operations and securing funding for our ambitious projects. His background in business and technology gives him a unique perspective on resource allocation and strategic financial planning. Under his stewardship, the club has successfully secured grants and sponsorships that have enabled us to host larger events, provide better resources to our members, and expand our program offerings. Alex's meticulous approach to financial management and his ability to identify funding opportunities continues to ensure the long-term sustainability and growth of our organization.",
       image: "/placeholder.svg?height=300&width=300",
       linkedin: "#",
       github: "#",
@@ -100,22 +117,86 @@ export function CommitteeSection() {
               className="group bg-card/50 backdrop-blur-sm border-border/50 hover:bg-card/80 transition-all duration-300 hover:scale-105"
             >
               <CardContent className="p-6">
-                {/* Profile Image */}
-                <div className="relative mb-6">
-                  <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20">
-                    <img
-                      src={member.image || "/placeholder.svg"}
-                      alt={`${member.name} - ${member.role}`}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
+                {/* Profile Image with MorphingDialog */}
+                <MorphingDialog
+                  transition={{
+                    type: 'spring',
+                    stiffness: 200,
+                    damping: 24,
+                  }}
+                >
+                  <div className="relative mb-6">
+                    <MorphingDialogTrigger className="block">
+                      <div className="aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20 cursor-pointer hover:scale-110 transition-transform duration-300">
+                        <MorphingDialogImage
+                          src={member.image || "/placeholder.svg"}
+                          alt={`${member.name} - ${member.role}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </MorphingDialogTrigger>
+                    <Badge
+                      variant="secondary"
+                      className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground"
+                    >
+                      {member.role}
+                    </Badge>
                   </div>
-                  <Badge
-                    variant="secondary"
-                    className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground"
-                  >
-                    {member.role}
-                  </Badge>
-                </div>
+
+                  <MorphingDialogContainer>
+                    <MorphingDialogContent className="relative h-auto w-[600px] max-w-[90vw] border border-border bg-background rounded-xl">
+                      <ScrollArea className="h-[80vh]" type="scroll">
+                        <div className="relative p-8">
+                          <div className="flex justify-center py-10">
+                            <MorphingDialogImage
+                              src={member.image || "/placeholder.svg"}
+                              alt={`${member.name} - ${member.role}`}
+                              className="h-auto w-[250px] rounded-lg"
+                            />
+                          </div>
+                          <div className="space-y-6 text-center">
+                            <div>
+                              <MorphingDialogTitle className="text-foreground text-2xl font-bold">
+                                {member.name}
+                              </MorphingDialogTitle>
+                              <MorphingDialogSubtitle className="text-primary text-lg font-medium">
+                                {member.role}
+                              </MorphingDialogSubtitle>
+                              <div className="mt-2 space-y-1">
+                                <p className="text-muted-foreground">{member.department}</p>
+                                <p className="text-accent">{member.year}</p>
+                              </div>
+                            </div>
+                            
+                            <div className="text-left space-y-4">
+                              <h4 className="text-lg font-semibold text-foreground">About {member.name.split(' ')[0]}</h4>
+                              <p className="text-muted-foreground leading-relaxed">
+                                {member.fullBio}
+                              </p>
+                            </div>
+
+                            {/* Social Links */}
+                            <div className="flex justify-center space-x-4 pt-6">
+                              <Button variant="outline" size="sm" className="h-10 w-10 p-0">
+                                <Linkedin className="h-4 w-4" />
+                                <span className="sr-only">LinkedIn</span>
+                              </Button>
+                              <Button variant="outline" size="sm" className="h-10 w-10 p-0">
+                                <Github className="h-4 w-4" />
+                                <span className="sr-only">GitHub</span>
+                              </Button>
+                              <Button variant="outline" size="sm" className="h-10 w-10 p-0">
+                                <Mail className="h-4 w-4" />
+                                <span className="sr-only">Email</span>
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                      </ScrollArea>
+                      <MorphingDialogClose className="text-muted-foreground" />
+                    </MorphingDialogContent>
+                  </MorphingDialogContainer>
+                </MorphingDialog>
 
                 {/* Member Info */}
                 <div className="text-center space-y-3">
