@@ -16,10 +16,10 @@ export function GlowCard({
   hover = true 
 }: GlowCardProps) {
   const variants = {
-    default: ['#3B82F6', '#8B5CF6', '#10B981', '#F59E0B'],
-    primary: ['#0894FF', '#3B82F6', '#60A5FA', '#DBEAFE'],
-    secondary: ['#10B981', '#059669', '#34D399', '#A7F3D0'],
-    accent: ['#C959DD', '#8B5CF6', '#A78BFA', '#DDD6FE']
+    default: ['#3B82F6', '#8B5CF6', '#06B6D4', '#10B981'], // Blue to purple to cyan
+    primary: ['#2563EB', '#3B82F6', '#60A5FA', '#93C5FD'], // Blue gradient
+    secondary: ['#059669', '#10B981', '#34D399', '#6EE7B7'], // Green gradient
+    accent: ['#7C3AED', '#8B5CF6', '#A78BFA', '#C4B5FD']  // Purple gradient
   }
 
   return (
@@ -28,18 +28,15 @@ export function GlowCard({
         colors={variants[variant]}
         mode='static'
         blur='medium'
-        scale={1.1}
-        className={hover ? 'opacity-0 group-hover:opacity-100 transition-opacity duration-500' : ''}
+        scale={1.2}
+        className="opacity-60 group-hover:opacity-90 transition-opacity duration-500"
       />
       <Card className={cn(
-        'relative bg-gray-950/80 backdrop-blur-xl border-white/20',
+        'relative backdrop-blur-xl',
         'shadow-xl hover:shadow-2xl transition-all duration-300',
-        hover && 'hover:scale-105 hover:border-white/30',
-        'hover:bg-gray-950/90'
-      )}
-      style={{
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
-      }}>
+        hover && 'hover:scale-105',
+        'border-border/50 hover:border-border'
+      )}>
         {children}
       </Card>
     </div>
@@ -89,7 +86,7 @@ export function StatsGlowCard({
   ...props 
 }: Omit<GlowCardProps, 'variant'>) {
   return (
-    <GlowCard variant="default" className={className} {...props}>
+    <GlowCard variant="default" className={className} hover={false} {...props}>
       {children}
     </GlowCard>
   )

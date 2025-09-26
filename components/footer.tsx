@@ -23,9 +23,9 @@ export function Footer() {
   ]
 
   const contact = [
-    { icon: Mail, text: "hello@techgenius.edu" },
-    { icon: Phone, text: "+1 (555) 123-4567" },
-    { icon: MapPin, text: "Tech Building, Room 201\nUniversity Campus" },
+    { icon: Mail, text: "techgenius@charusat.ac.in" },
+    { icon: Phone, text: "+91 75677 02409" },
+    { icon: MapPin, text: "A7 Building, Room 630\n CSPIT Campus" },
   ]
 
   return (
@@ -117,7 +117,7 @@ export function Footer() {
 
         {/* Bottom Footer */}
         <div className="py-6 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-          <div className="text-sm text-muted-foreground">© 2024 TechGenius. All rights reserved.</div>
+          <div className="text-sm text-muted-foreground">© 2025 TechGenius. All rights reserved.</div>
           <div className="flex space-x-6 text-sm">
             <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
               Privacy Policy

@@ -18,7 +18,7 @@ export function GlowButton({
   onClick 
 }: GlowButtonProps) {
   const variants = {
-    primary: ['#3B82F6', '#1D4ED8', '#60A5FA', '#DBEAFE'],
+    primary: ['#f63b3bff', '#1D4ED8', '#60A5FA', '#ff0000ff'],
     secondary: ['#10B981', '#059669', '#34D399', '#A7F3D0'],
     accent: ['#8B5CF6', '#7C3AED', '#A78BFA', '#DDD6FE']
   }

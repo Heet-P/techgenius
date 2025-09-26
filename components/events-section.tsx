@@ -16,6 +16,8 @@ import {
   MorphingDialogContainer,
 } from '@/components/ui/morphing-dialog'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { PrimaryGlowButton } from '@/components/ui/glow-button'
+import { EventGlowCard} from '@/components/ui/glow-card'
 
 export function EventsSection() {
   const upcomingEvents = [
@@ -127,10 +129,7 @@ export function EventsSection() {
           <TabsContent value="upcoming" className="space-y-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
               {upcomingEvents.map((event, index) => (
-                <Card
-                  key={index}
-                  className="group bg-background/50 backdrop-blur-sm border-border/50 hover:bg-background/80 transition-all duration-300 hover:scale-105"
-                >
+                <EventGlowCard key={index}>
                   <MorphingDialog
                     transition={{
                       type: 'spring',
@@ -198,10 +197,9 @@ export function EventsSection() {
                                 </p>
                               </div>
 
-                              <Button className="w-full group/btn">
-                                Register Now
-                                <ExternalLink className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                              </Button>
+                              <PrimaryGlowButton size="lg">
+                                Join Our Community
+                              </PrimaryGlowButton>
                             </div>
                           </div>
                         </ScrollArea>
@@ -240,12 +238,11 @@ export function EventsSection() {
                       </div>
                     </div>
 
-                    <Button className="w-full group/btn">
+                    <PrimaryGlowButton size="lg">
                       Register Now
-                      <ExternalLink className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                    </Button>
+                    </PrimaryGlowButton>
                   </CardContent>
-                </Card>
+                </EventGlowCard>
               ))}
             </div>
           </TabsContent>
@@ -398,12 +395,9 @@ export function EventsSection() {
             exclusive invitations and early access to registrations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-lg px-8 py-6">
-              Join Our Newsletter
-            </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent">
-              View Event Calendar
-            </Button>
+            <PrimaryGlowButton size="lg" className="text-lg px-8 py-6">
+              Download Our Magazine
+            </PrimaryGlowButton>
           </div>
         </div>
       </div>

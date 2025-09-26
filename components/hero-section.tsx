@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Code, Users, Lightbulb } from "lucide-react"
 import { useEffect, useState } from "react"
+import { PrimaryGlowButton, SecondaryGlowButton } from '@/components/ui/glow-button'
+
 
 export function HeroSection() {
   const [mounted, setMounted] = useState(false)
@@ -40,19 +42,18 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button size="lg" className="text-lg px-8 py-6 group">
-              Join Our Community
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent">
-              Explore Events
-            </Button>
+              <PrimaryGlowButton size="lg">
+                Join Our Community
+              </PrimaryGlowButton>
+              <SecondaryGlowButton size="lg">
+                  Explore Events
+              </SecondaryGlowButton>
           </div>
 
           {/* Feature highlights */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div
-              className={`transition-all duration-1000 delay-200 ${mounted ? "animate-slide-in-left" : "opacity-0"}`}
+              className={`transition-all duration-1000 delay-200 ${mounted ? "animate-slide-in-left" : "opacity-100"}`}
             >
               <div className="flex flex-col items-center p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50">
                 <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">

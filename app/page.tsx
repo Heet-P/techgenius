@@ -4,7 +4,6 @@ import { AboutSection } from "@/components/about-section"
 import { CommitteeSection } from "@/components/committee-section"
 import { EventsSection } from "@/components/events-section"
 import { AchievementsSection } from "@/components/achievements-section"
-import { PartnersSection } from "@/components/partners-section"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
       <CommitteeSection />
       <EventsSection />
       <AchievementsSection />
-      <PartnersSection />
       <Footer />
     </main>
   )

@@ -14,6 +14,7 @@ import {
   MorphingDialogContainer,
 } from '@/components/ui/morphing-dialog'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { StatsGlowCard } from '@/components/ui/glow-card'
 
 export function AboutSection() {
   const values = [
@@ -128,7 +129,7 @@ export function AboutSection() {
             </MorphingDialog>
             
             {/* Floating stats card */}
-            <Card className="absolute -bottom-6 -right-6 bg-background/95 backdrop-blur-sm border-border">
+            <StatsGlowCard>
               <CardContent className="p-6">
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
@@ -141,7 +142,7 @@ export function AboutSection() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </StatsGlowCard>
           </div>
 
           {/* Right Column - Content */}

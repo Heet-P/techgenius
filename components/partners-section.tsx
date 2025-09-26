@@ -14,6 +14,7 @@ import {
   MorphingDialogContainer,
 } from '@/components/ui/morphing-dialog'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { PartnerGlowCard } from '@/components/ui/glow-card'
 
 export function PartnersSection() {
   const partners = [
@@ -150,23 +151,20 @@ export function PartnersSection() {
         {/* Partnership Benefits */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {partnershipBenefits.map((benefit, index) => (
-            <Card key={index} className="bg-background/50 backdrop-blur-sm border-border/50 text-center">
+            <PartnerGlowCard key={index}>
               <CardContent className="p-6">
                 <div className="text-3xl font-bold text-primary mb-2">{benefit.count}</div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">{benefit.title}</h3>
                 <p className="text-sm text-muted-foreground">{benefit.description}</p>
               </CardContent>
-            </Card>
+            </PartnerGlowCard>
           ))}
         </div>
 
         {/* Partners Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {partners.map((partner, index) => (
-            <Card
-              key={index}
-              className="group bg-background/50 backdrop-blur-sm border-border/50 hover:bg-background/80 transition-all duration-300 hover:scale-105"
-            >
+            <PartnerGlowCard key={index}>
               <CardContent className="p-6">
                 <MorphingDialog
                   transition={{
@@ -281,7 +279,7 @@ export function PartnersSection() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </PartnerGlowCard>
           ))}
         </div>
 

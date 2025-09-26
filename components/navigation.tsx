@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Home, Users, Calendar, Award, Building2 } from "lucide-react"
+import { Menu, X, Home, Users, Calendar, Award } from "lucide-react"
 import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock'
 import { GlowEffect } from '@/components/ui/glow-effect'
 
@@ -23,7 +23,6 @@ export function Navigation() {
     { href: "#committee", label: "Committee", icon: Users },
     { href: "#events", label: "Events", icon: Calendar },
     { href: "#achievements", label: "Achievements", icon: Award },
-    { href: "#partners", label: "Partners", icon: Building2 },
   ]
 
   return (
@@ -33,13 +32,13 @@ export function Navigation() {
       }`}
       style={{
         background: scrolled 
-          ? 'rgba(5, 10, 28, 0.8)'
+          ? 'rgba(255, 255, 255, 0.1)'
           : 'transparent',
         borderBottom: scrolled 
-          ? '1px solid rgba(255, 255, 255, 0.1)' 
+          ? '1px solid rgba(255, 255, 255, 0.2)' 
           : 'none',
         boxShadow: scrolled
-          ? '0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+          ? '0 4px 20px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
           : 'none'
       }}
     >
@@ -51,7 +50,7 @@ export function Navigation() {
             blur='soft'
             duration={4}
             scale={2}
-            className="opacity-20"
+            className="opacity-10"
           />
         </div>
       )}
@@ -73,7 +72,7 @@ export function Navigation() {
                   <DockIcon>
                     <a
                       href={item.href}
-                      className="flex items-center justify-center w-full h-full text-white/70 hover:text-white transition-colors duration-200"
+                      className="flex items-center justify-center w-full h-full text-white/70 hover:text-blue-400 transition-colors duration-200"
                     >
                       <item.icon className="w-5 h-5" />
                     </a>
@@ -95,9 +94,9 @@ export function Navigation() {
             <Button 
               variant="outline" 
               size="sm"
-              className="relative bg-gray-950/80 border-white/20 text-white hover:bg-gray-950/90 hover:border-white/30 backdrop-blur-sm"
+              className="relative bg-background/80 border-border/50 text-foreground hover:text-blue-600 hover:bg-blue-100/50 hover:border-blue-300 backdrop-blur-sm"
               style={{
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                boxShadow: '0 4px 15px rgba(255, 5, 5, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
               }}
             >
               Join Community
@@ -107,49 +106,43 @@ export function Navigation() {
           {/* Mobile menu button */}
           <div className="md:hidden relative">
             <GlowEffect
-              colors={['#8B5CF6', '#7C3AED']}
+              colors={['#3B82F6', '#3B82F6']}
               mode='pulse'
-              blur='soft'
+              blur='medium'
               duration={2}
               scale={0.8}
-              className="opacity-50"
+              className="opacity-60"
             />
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <Button
+              variant="ghost"
+              size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className="relative text-white hover:bg-white/10"
+              className="relative text-foreground hover:bg-background/20"
             >
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden">
-          <div 
-            className="px-2 pt-2 pb-3 space-y-1 backdrop-blur-xl border-t border-white/10"
-            style={{
-              background: 'rgba(5, 10, 28, 0.95)',
-              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)'
-            }}
-          >
-            <div className="absolute inset-0 -z-10">
+        <div className="md:hidden absolute top-16 inset-x-0 bg-background/95 backdrop-blur-xl border-b border-border/20">
+          <div className="px-4 py-6 space-y-4">
+            <div className="relative">
               <GlowEffect
                 colors={['#3B82F6', '#8B5CF6', '#10B981']}
                 mode='static'
                 blur='medium'
                 scale={1.2}
-                className="opacity-20"
+                className="opacity-10"
               />
             </div>
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="flex items-center gap-3 px-3 py-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors duration-200 rounded-md"
+                className="flex items-center gap-3 px-3 py-2 text-foreground/80 hover:text-foreground hover:bg-background/20 transition-colors duration-200 rounded-md"
                 onClick={() => setIsOpen(false)}
               >
                 <item.icon className="w-4 h-4" />
@@ -168,9 +161,9 @@ export function Navigation() {
                 <Button 
                   variant="outline" 
                   size="sm" 
-                  className="relative w-full bg-gray-950/80 border-white/20 text-white hover:bg-gray-950/90"
+                  className="relative w-full bg-background/80 border-border/50 text-foreground hover:bg-background/90"
                   style={{
-                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
                   }}
                 >
                   Join Community
