@@ -42,12 +42,18 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-              <PrimaryGlowButton size="lg">
-                Join Our Community
-              </PrimaryGlowButton>
-              <SecondaryGlowButton size="lg">
-                  Explore Events
-              </SecondaryGlowButton>
+            <PrimaryGlowButton
+              size="lg"
+              onClick={() => window.open('https://forms.gle/ZaKA57t3o5VX1Qi8A', '_blank')}
+            >
+              Join Our Community
+            </PrimaryGlowButton>
+            <SecondaryGlowButton
+              size="lg"
+              onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Explore Events
+            </SecondaryGlowButton>
           </div>
 
           {/* Feature highlights */}

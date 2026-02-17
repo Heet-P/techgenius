@@ -406,7 +406,7 @@ export function CommitteeSection() {
                                 <p className="text-accent">{member.year}</p>
                               </div>
                             </div>
-                            
+
                             <div className="text-left space-y-4">
                               <h4 className="text-lg font-semibold text-foreground">About {member.name.split(' ')[0]}</h4>
                               <p className="text-muted-foreground leading-relaxed">
@@ -462,10 +462,10 @@ export function CommitteeSection() {
 
                   {/* Social Links on Cards */}
                   <div className="flex justify-center space-x-3 pt-4">
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="h-8 w-8 p-0 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/50 dark:hover:text-blue-400" 
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-8 w-8 p-0 hover:bg-blue-100 hover:text-blue-600 dark:hover:bg-blue-900/50 dark:hover:text-blue-400"
                       asChild
                     >
                       <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
@@ -473,10 +473,10 @@ export function CommitteeSection() {
                         <span className="sr-only">LinkedIn Profile</span>
                       </a>
                     </Button>
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="h-8 w-8 p-0 hover:bg-purple-100 hover:text-purple-900 dark:hover:bg-purple-700 dark:hover:text-purple-400" 
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-8 w-8 p-0 hover:bg-purple-100 hover:text-purple-900 dark:hover:bg-purple-700 dark:hover:text-purple-400"
                       asChild
                     >
                       <a href={member.github} target="_blank" rel="noopener noreferrer">
@@ -484,10 +484,10 @@ export function CommitteeSection() {
                         <span className="sr-only">GitHub Profile</span>
                       </a>
                     </Button>
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="h-8 w-8 p-0 hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/50 dark:hover:text-red-400" 
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-8 w-8 p-0 hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/50 dark:hover:text-red-400"
                       asChild
                     >
                       <a href={`mailto:${member.email}`}>
@@ -513,7 +513,10 @@ export function CommitteeSection() {
             In our collective, there is always room for more people with that delicious combination of analytical and
             creative strategy.
           </p>
-          <PrimaryGlowButton size="lg">
+          <PrimaryGlowButton
+            size="lg"
+            onClick={() => window.open('https://forms.gle/ZaKA57t3o5VX1Qi8A', '_blank')}
+          >
             Join Our Community
           </PrimaryGlowButton>
         </div>

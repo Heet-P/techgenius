@@ -41,10 +41,9 @@ export function AboutSection() {
   ]
 
   const stats = [
-    { number: "500+", label: "Active Members" },
-    { number: "50+", label: "Projects Completed" },
-    { number: "25+", label: "Industry Partners" },
-    { number: "100+", label: "Events Hosted" },
+    { number: "100+", label: "Active Members" },
+    { number: "10+", label: "Projects Completed" },
+    { number: "10+", label: "Events Hosted" },
   ]
 
   return (
@@ -77,7 +76,7 @@ export function AboutSection() {
               }}
             >
               <MorphingDialogTrigger className="block">
-                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer shadow-lg border border-border/50 backdrop-blur-sm">
                   <MorphingDialogImage
                     src="/placeholder.svg?height=400&width=600"
                     alt="TechGenius members collaborating"
@@ -105,18 +104,18 @@ export function AboutSection() {
                         </MorphingDialogSubtitle>
                         <div className="text-muted-foreground space-y-4">
                           <p>
-                            At TechGenius, we believe that the best innovations come from collaborative environments where 
-                            diverse minds work together toward common goals. Our community space is designed to foster 
+                            At TechGenius, we believe that the best innovations come from collaborative environments where
+                            diverse minds work together toward common goals. Our community space is designed to foster
                             creativity, learning, and meaningful connections between students passionate about technology.
                           </p>
                           <p>
-                            This image captures one of our regular collaboration sessions where members work on various 
-                            projects ranging from mobile applications to AI research initiatives. These sessions are the 
+                            This image captures one of our regular collaboration sessions where members work on various
+                            projects ranging from mobile applications to AI research initiatives. These sessions are the
                             heart of our community, where ideas are born, refined, and transformed into reality.
                           </p>
                           <p>
-                            Our modern facilities provide the perfect environment for both focused individual work and 
-                            dynamic group collaborations, ensuring that every member has access to the resources and 
+                            Our modern facilities provide the perfect environment for both focused individual work and
+                            dynamic group collaborations, ensuring that every member has access to the resources and
                             support they need to succeed in their technological endeavors.
                           </p>
                         </div>
@@ -127,18 +126,18 @@ export function AboutSection() {
                 </MorphingDialogContent>
               </MorphingDialogContainer>
             </MorphingDialog>
-            
+
             {/* Floating stats card */}
             <StatsGlowCard>
               <CardContent className="p-6">
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-primary">5+</div>
-                    <div className="text-sm text-muted-foreground">Years Active</div>
+                    <div className="text-2xl font-bold text-primary">1+</div>
+                    <div className="text-sm text-muted-foreground">Year Active</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-primary">95%</div>
-                    <div className="text-sm text-muted-foreground">Job Placement</div>
+                    <div className="text-2xl font-bold text-primary">100%</div>
+                    <div className="text-sm text-muted-foreground">Enjoyment & Learning</div>
                   </div>
                 </div>
               </CardContent>
@@ -186,7 +185,7 @@ export function AboutSection() {
             <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">Our Impact in Numbers</h3>
             <p className="text-muted-foreground">Building a stronger tech community, one student at a time</p>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">{stat.number}</div>

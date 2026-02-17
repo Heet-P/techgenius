@@ -1,12 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Home, Users, Calendar, Award } from "lucide-react"
+import { Menu, X, Home, Users, Calendar, Award, Shield } from "lucide-react"
 import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock'
 import { GlowEffect } from '@/components/ui/glow-effect'
 
 export function Navigation() {
+  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -27,15 +29,14 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "backdrop-blur-xl" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "backdrop-blur-xl" : "bg-transparent"
+        }`}
       style={{
-        background: scrolled 
+        background: scrolled
           ? 'rgba(255, 255, 255, 0.1)'
           : 'transparent',
-        borderBottom: scrolled 
-          ? '1px solid rgba(255, 255, 255, 0.2)' 
+        borderBottom: scrolled
+          ? '1px solid rgba(255, 255, 255, 0.2)'
           : 'none',
         boxShadow: scrolled
           ? '0 4px 20px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
@@ -54,10 +55,10 @@ export function Navigation() {
           />
         </div>
       )}
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
+        <div className="flex items-center justify-center h-16 relative">
+          <div className="absolute left-0 flex items-center">
             <a href="#" className="text-xl font-bold text-foreground hover:text-primary transition-colors">
               TechGenius
             </a>
@@ -82,24 +83,36 @@ export function Navigation() {
             </Dock>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block relative">
-            <GlowEffect
-              colors={['#10B981', '#059669', '#34D399']}
-              mode='colorShift'
-              blur='medium'
-              duration={3}
-              scale={0.9}
-            />
-            <Button 
-              variant="outline" 
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center gap-3 absolute right-0">
+            <div className="relative">
+              <GlowEffect
+                colors={['#10B981', '#059669', '#34D399']}
+                mode='colorShift'
+                blur='medium'
+                duration={3}
+                scale={0.9}
+              />
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => window.open('https://forms.gle/ZaKA57t3o5VX1Qi8A', '_blank')}
+                className="relative bg-background/80 border-border/50 text-foreground hover:text-blue-600 hover:bg-blue-100/50 hover:border-blue-300 backdrop-blur-sm"
+                style={{
+                  boxShadow: '0 4px 15px rgba(255, 5, 5, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                }}
+              >
+                Join Community
+              </Button>
+            </div>
+            <Button
+              variant="ghost"
               size="sm"
-              className="relative bg-background/80 border-border/50 text-foreground hover:text-blue-600 hover:bg-blue-100/50 hover:border-blue-300 backdrop-blur-sm"
-              style={{
-                boxShadow: '0 4px 15px rgba(255, 5, 5, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
-              }}
+              onClick={() => router.push('/login')}
+              className="text-foreground hover:text-foreground bg-background/50 hover:bg-background/70 border border-border/30"
             >
-              Join Community
+              <Shield className="h-4 w-4 mr-2" />
+              Admin
             </Button>
           </div>
 
@@ -149,7 +162,7 @@ export function Navigation() {
                 {item.label}
               </a>
             ))}
-            <div className="px-3 py-2">
+            <div className="px-3 py-2 space-y-2">
               <div className="relative">
                 <GlowEffect
                   colors={['#10B981', '#059669']}
@@ -158,9 +171,10 @@ export function Navigation() {
                   duration={3}
                   scale={0.9}
                 />
-                <Button 
-                  variant="outline" 
-                  size="sm" 
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => window.open('https://forms.gle/ZaKA57t3o5VX1Qi8A', '_blank')}
                   className="relative w-full bg-background/80 border-border/50 text-foreground hover:bg-background/90"
                   style={{
                     boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
@@ -169,6 +183,15 @@ export function Navigation() {
                   Join Community
                 </Button>
               </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => router.push('/login')}
+                className="w-full text-foreground hover:text-foreground bg-background/50 hover:bg-background/70 border border-border/30"
+              >
+                <Shield className="h-4 w-4 mr-2" />
+                Admin Login
+              </Button>
             </div>
           </div>
         </div>
