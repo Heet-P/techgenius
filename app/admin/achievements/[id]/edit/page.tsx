@@ -1,22 +1,17 @@
 import { AchievementForm } from "@/components/admin/achievement-form"
+import { supabase } from "@/lib/db"
 import { notFound } from "next/navigation"
-
-async function getAchievement(id: string) {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/achievements/${id}`, {
-        cache: "no-store",
-    })
-
-    if (!response.ok) return null
-
-    const data = await response.json()
-    return data.achievement
-}
 
 export default async function EditAchievementPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params
-    const achievement = await getAchievement(id)
 
-    if (!achievement) {
+    const { data: achievement, error } = await supabase
+        .from("achievements")
+        .select("*")
+        .eq("id", id)
+        .single()
+
+    if (error || !achievement) {
         notFound()
     }
 
