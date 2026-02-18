@@ -374,8 +374,8 @@ export function EventsSection() {
             exclusive invitations and early access to registrations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <PrimaryGlowButton size="lg" className="text-lg px-8 py-6">
-              Download Our Magazine
+            <PrimaryGlowButton size="lg" className="text-lg px-8 py-6" onClick={() => window.open('https://chat.whatsapp.com/Kx8aaL2iXMXIUzbqBRDZFI?mode=gi_t', '_blank')}>
+              Get Regular Updates
             </PrimaryGlowButton>
           </div>
         </div>
